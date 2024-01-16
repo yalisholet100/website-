@@ -7,7 +7,7 @@
             font-family: Arial, sans-serif;
         }
 
-        #apiResponse {
+        #apiResponse, #downloadSection {
             margin-top: 20px;
             border: 1px solid #ddd;
             padding: 10px;
@@ -17,6 +17,11 @@
 <body>
     <button id="apiRequestButton">Request API Data</button>
     <div id="apiResponse"></div>
+
+    <!-- Download Section -->
+    <div id="downloadSection">
+        <button id="downloadButton">Download Source Code</button>
+    </div>
 
     <script>
         document.getElementById('apiRequestButton').addEventListener('click', function() {
@@ -31,6 +36,13 @@
                 document.getElementById('apiResponse').innerText = JSON.stringify(data);
             })
             .catch(error => console.error('Error:', error));
+        });
+
+        // Function to handle downloading of files
+        document.getElementById('downloadButton').addEventListener('click', function() {
+            // Implement logic to package and download source code and files
+            // This is a placeholder and needs proper implementation based on your requirements
+            alert('Download functionality not yet implemented');
         });
     </script>
 </body>
