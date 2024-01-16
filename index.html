@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Kits.AI API Example</title>
+    <title>Kits.AI API Example with Download Feature</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -40,9 +41,8 @@
 
         // Function to handle downloading of files
         document.getElementById('downloadButton').addEventListener('click', function() {
-            // Implement logic to package and download source code and files
-            // This is a placeholder and needs proper implementation based on your requirements
-            alert('Download functionality not yet implemented');
+            var blob = new Blob(["This is a test file for the download feature."], { type: "text/plain;charset=utf-8" });
+            saveAs(blob, "download.txt");
         });
     </script>
 </body>
