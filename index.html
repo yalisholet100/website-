@@ -1,29 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {
-  font-family: Arial
-}
+    <title>Kits.AI API Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
 
-* {
-  box-sizing: border-box;
-}
+        #apiResponse {
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <button id="apiRequestButton">Request API Data</button>
+    <div id="apiResponse"></div>
 
-/* The browser window */
-.container {
-  border: 3px solid #f1f1f1;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-}
-
-/* Container for columns and the top "toolbar" */
-.row {
-  padding: 10px;
-  background: #f1f1f1;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-}
-
-/* Create three unequal columns that floats next to each other */
+    <script>
+        document.getElementById('apiRequestButton').addEventListener('click', function() {
+            fetch('https://api.kits.ai/endpoint', {
+                method: 'GET',
+                headers: {
+                    'Authorization': 'Bearer YOUR_API_KEY'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('apiResponse').innerText = JSON.stringify(data);
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>
